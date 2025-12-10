@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ClimateGuard — Hazard Detector</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+  <!-- Header -->
+  <header class="bg-gray-900 text-white border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo.svg" alt="logo" class="w-10 h-10"/>
+        <span class="text-xl font-bold">ClimateGuard</span>
+      </div>
+
+      <nav class="space-x-6 hidden md:flex">
+        <a href="index.html" class="header-link text-gray-200">Home</a>
+        <a href="carbon.html" class="header-link text-gray-200">Carbon Calculator</a>
+        <a href="aqi.html" class="header-link text-gray-200">AQI Dashboard</a>
+        <a href="hazard.html" class="header-link text-emerald-400">Hazard Detector</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <h1 class="text-3xl font-bold mb-4">Hazard Detector</h1>
+    <p class="text-gray-300 mb-6">Detects: extreme heat, extreme cold, heavy rain (flooding risk), high PM2.5, and very high UV. Get clear advice when a hazard is active.</p>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="md:col-span-2 bg-gray-800 p-6 rounded-xl">
+        <div class="flex gap-3">
+          <input id="hazCityInput" class="flex-1 p-3 rounded bg-gray-900 border border-gray-700" placeholder="Enter city (e.g., Kathmandu)" />
+          <button id="hazSearchBtn" class="px-4 py-2 rounded bg-emerald-400 text-black">Check</button>
+        </div>
+
+        <div class="mt-6">
+          <div id="hazardOutput" class="space-y-3">
+            <div class="p-4 rounded bg-gray-900">No check performed yet.</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="bg-gray-800 p-6 rounded-xl">
+        <h3 class="font-semibold">Last checked</h3>
+        <div id="hazLast" class="mt-3 text-sm text-gray-300">—</div>
+        <div class="mt-6">
+          <h4 class="font-semibold">Advice</h4>
+          <div id="hazAdvice" class="mt-2 text-sm text-gray-300">No action.</div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

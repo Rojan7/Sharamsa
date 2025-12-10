@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ClimateGuard — Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+  
+  <header class="bg-gray-900 text-white border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo.svg" alt="logo" class="w-10 h-10"/>
+        <span class="text-xl font-bold">ClimateGuard</span>
+      </div>
+
+      <nav class="space-x-6 hidden md:flex">
+        <a href="index.html" class="header-link text-gray-200">Home</a>
+        <a href="carbon.html" class="header-link text-gray-200">Carbon Calculator</a>
+        <a href="aqi.html" class="header-link text-gray-200">AQI Dashboard</a>
+        <a href="hazard.html" class="header-link text-gray-200">Hazard Detector</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+      </div>
+    </div>
+  </header>
+
+  
+  <section class="relative">
+    <img src="https://images.unsplash.com/photo-1503264116251-35a269479413?q=80&w=1920&auto=format&fit=crop&s=9d0f0e9b2d3d6b0b7ad0a9d8b3c5f4d8" alt="earth" class="w-full h-[60vh] object-cover brightness-50"/>
+    <div class="absolute inset-0 flex items-center">
+      <div class="max-w-6xl mx-auto px-6 py-10 text-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold neon">ClimateGuard — Track • Reduce • Respond</h1>
+        <p class="mt-4 text-gray-300 max-w-2xl mx-auto">A browser-first climate dashboard: carbon footprint, AQI & weather trends, and hazard alerts — powered by Open-Meteo.</p>
+        <div class="mt-6 flex justify-center gap-4">
+          <a href="carbon.html" class="px-6 py-3 rounded-full bg-emerald-400 text-black font-semibold">Calculate Carbon</a>
+          <a href="aqi.html" class="px-6 py-3 rounded-full border border-gray-600">View AQI Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold mb-6">What you can do with ClimateGuard</h2>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <article class="p-6 rounded-xl card-glass shadow-lg">
+        <h3 class="font-semibold text-xl">Carbon Calculator</h3>
+        <p class="text-sm text-gray-300 mt-2">Estimate daily emissions and get tips to cut them.</p>
+        <a href="carbon.html" class="mt-4 inline-block text-emerald-400">Open calculator →</a>
+      </article>
+
+      <article class="p-6 rounded-xl card-glass shadow-lg">
+        <h3 class="font-semibold text-xl">AQI & Weather</h3>
+        <p class="text-sm text-gray-300 mt-2">Live PM2.5, temperature, UV and rainfall trends for any city.</p>
+        <a href="aqi.html" class="mt-4 inline-block text-emerald-400">Open AQI Dashboard →</a>
+      </article>
+
+      <article class="p-6 rounded-xl card-glass shadow-lg">
+        <h3 class="font-semibold text-xl">Hazard Detector</h3>
+        <p class="text-sm text-gray-300 mt-2">Detect extreme heat, heavy rain, high PM2.5 and high UV events with clear advice.</p>
+        <a href="hazard.html" class="mt-4 inline-block text-emerald-400">Open Hazard Detector →</a>
+      </article>
+    </div>
+
+    
+    <section class="mt-12 bg-gray-800 p-6 rounded-xl">
+      <h3 class="text-2xl font-semibold">Top Tips to Reduce Your Environmental Impact</h3>
+      <div class="grid md:grid-cols-2 gap-4 mt-4">
+        <ul class="space-y-2 text-gray-300">
+          <li>• Walk, cycle, or use public transit for short trips.</li>
+          <li>• Replace incandescent bulbs with LEDs.</li>
+          <li>• Reduce food waste — plan meals.</li>
+          <li>• Unplug idle electronics; use power strips.</li>
+          <li>• Plant native trees and support local biodiversity.</li>
+        </ul>
+        <div>
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800&auto=format&fit=crop&s=b4c7d3f7e2f6a5a1a9b2c3d4e5f6a7b8" alt="action" class="rounded-lg w-full object-cover h-56"/>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  
+  <div id="loginModal" class="fixed inset-0 bg-black/60 flex items-center justify-center hidden z-50">
+    <div class="bg-gray-900 p-6 rounded-lg w-96">
+      <h4 class="font-semibold text-lg">Login (local)</h4>
+      <p class="text-sm text-gray-400 mt-1">Enter a display name stored locally.</p>
+      <input id="loginName" class="w-full mt-3 p-3 rounded bg-gray-800 border border-gray-700" placeholder="Your name" />
+      <div class="mt-4 flex justify-end gap-2">
+        <button id="cancelLogin" class="px-3 py-2 rounded bg-gray-800">Cancel</button>
+        <button id="doLogin" class="px-4 py-2 rounded bg-emerald-400 text-black font-semibold">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

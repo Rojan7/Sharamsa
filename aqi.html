@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ClimateGuard — AQI Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+  <!-- Header -->
+  <header class="bg-gray-900 text-white border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo.svg" alt="logo" class="w-10 h-10"/>
+        <span class="text-xl font-bold">ClimateGuard</span>
+      </div>
+
+      <nav class="space-x-6 hidden md:flex">
+        <a href="index.html" class="header-link text-gray-200">Home</a>
+        <a href="carbon.html" class="header-link text-gray-200">Carbon Calculator</a>
+        <a href="aqi.html" class="header-link text-emerald-400">AQI Dashboard</a>
+        <a href="hazard.html" class="header-link text-gray-200">Hazard Detector</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <h1 class="text-3xl font-bold mb-4">AQI & Weather Dashboard</h1>
+    <p class="text-gray-300 mb-6">Type a city to fetch live weather + PM2.5 data. AQI is derived from PM2.5 using EPA breakpoints.</p>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="md:col-span-2 bg-gray-800 p-6 rounded-xl">
+        <div class="flex gap-3">
+          <input id="aqiCityInput" class="flex-1 p-3 rounded bg-gray-900 border border-gray-700" placeholder="Enter city (e.g., Kathmandu)" />
+          <button id="aqiSearchBtn" class="px-4 py-2 rounded bg-emerald-400 text-black">Search</button>
+        </div>
+
+        <div class="mt-6">
+          <div id="aqOverview" class="grid grid-cols-3 gap-3 text-center">
+            <div class="bg-gray-900 p-4 rounded">
+              <div class="text-sm text-gray-400">PM2.5</div>
+              <div id="aqPm" class="text-2xl font-bold">—</div>
+            </div>
+            <div class="bg-gray-900 p-4 rounded">
+              <div class="text-sm text-gray-400">AQI (US)</div>
+              <div id="aqIndex" class="text-2xl font-bold">—</div>
+            </div>
+            <div class="bg-gray-900 p-4 rounded">
+              <div class="text-sm text-gray-400">Category</div>
+              <div id="aqCategory" class="text-2xl font-bold">—</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <div id="chartSkeletonAQ" class="h-64 rounded skeleton"></div>
+          <canvas id="aqChart" class="hidden"></canvas>
+        </div>
+      </div>
+
+      <aside class="bg-gray-800 p-6 rounded-xl">
+        <h3 class="font-semibold">City Info</h3>
+        <div class="mt-4 text-sm text-gray-300">
+          <div><b>City:</b> <span id="aqCityName">—</span></div>
+          <div><b>Coordinates:</b> <span id="aqCoords">—</span></div>
+          <div class="mt-3"><b>UV:</b> <span id="aqUv">—</span></div>
+          <div class="mt-2"><b>Rain (1h):</b> <span id="aqRain">—</span></div>
+        </div>
+
+        <div class="mt-6">
+          <h4 class="font-semibold">AQ Tips</h4>
+          <div id="aqTips" class="mt-2 text-sm text-gray-300">—</div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
